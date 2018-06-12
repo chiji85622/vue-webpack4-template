@@ -138,9 +138,17 @@ exports.getEntry = function() {
   let entry = {};
 
   srcs.forEach(src => {
-    const keys = src.split("/");
-    const key = keys[keys.length - 1].split(".")[0];
-    const chunk = key === "index" ? keys[keys.length - 2] : key;
+    const chunk = src
+      .split("/")
+      .slice(3, -1)
+      .map(
+        (value, key) =>
+          key === 0
+            ? value
+            : value.substring(0, 1).toUpperCase() + value.substring(1)
+      )
+      .join("");
+
     entry[chunk] = src;
   });
 
