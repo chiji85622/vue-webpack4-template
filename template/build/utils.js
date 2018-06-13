@@ -147,7 +147,7 @@ exports.getEntry = function() {
             ? value
             : value.substring(0, 1).toUpperCase() + value.substring(1)
       )
-      .join("");
+      .join("")||'main';
 
     entry[chunk] = src;
   });
