@@ -7,7 +7,7 @@ const path = require('path')
 module.exports = {
   // 入口配置：glob的规则配置路径 
   // eg. ./src/page/*/*.js
-  entry:'./src/page/*/index.js',
+  entry:'./src/page/**/index.js',
   
   //是否多模板
   multiTemplate:true,
