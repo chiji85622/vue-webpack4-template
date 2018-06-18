@@ -158,15 +158,25 @@ exports.getEntry = function() {
 /**
  * 创建输出Html配置
  * @param {object} entry 入口文件
- * @param {object} config htmlWebpack配置
+ * @param {object} options htmlWebpack配置
  */
-exports.getOutputHtml = function(entry, config) {
+exports.getOutputHtml = function(entry, options) {
   let res = [];
 
+  const getTemplate=function(src){
+    if(config.build.index!=='m'){
+      return  process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index;
+    }
+    
+    return src.replace(/js$/,'pug')
+  }
+
   for (let chunk in entry) {
+    console.log(getTemplate(entry[chunk]))
     res.push(
       new HtmlWebpackPlugin({
-        ...config,
+        ...options,
+        template:getTemplate(entry[chunk]),
         chunks: [chunk,'vendors','manifest'],
         filename: `html/${chunk}.html`,
       })
