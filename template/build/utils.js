@@ -164,7 +164,7 @@ exports.getOutputHtml = function(entry, options) {
   let res = [];
 
   const getTemplate=function(src){
-    if(config.build.index!=='m'){
+    if(!config.multiTemplate){
       return  process.env.NODE_ENV === 'testing' ? 'index.html' : config.build.index;
     }
     
