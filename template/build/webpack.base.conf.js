@@ -91,9 +91,9 @@ module.exports = {
           name : utils.assetsPath("static/fonts/[name].[hash:7].[ext]")
         }
       },
-       {
+      {
         test: /\.pug$/,
-        use: 'pug-html-loader'
+        loader: ['html-loader','pug-html-loader']
       }
     ]
   },
