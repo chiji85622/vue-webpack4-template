@@ -4,10 +4,12 @@ module.exports = {
   "plugins": {
     "postcss-import": {},
     "postcss-url": {},
-    "postcss-sprites":{},
     "postcss-import":{},
-    "postcss-pr":{},
-    "postcss-cssnext":{},
+    "postcss-pr":{
+      fontSize:100,
+    },
     "css-mqpacker":{}
+//     "postcss-cssnext":{},
+//     "postcss-sprites":{},
   }
 }
